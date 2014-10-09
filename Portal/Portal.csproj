@@ -127,6 +127,7 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="Admin\AdminLogin.aspx" />
     <Content Include="Announcement\Announcement1.aspx" />
     <Content Include="Announcement\Announcement2.aspx" />
     <Content Include="Contact.aspx" />
@@ -226,6 +227,13 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AdminLogin.aspx.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminLogin.aspx.designer.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Announcement\Announcement1.aspx.cs">
       <DependentUpon>Announcement1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

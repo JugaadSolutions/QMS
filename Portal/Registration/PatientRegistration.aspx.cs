@@ -17,42 +17,67 @@ namespace Portal.Registration
 {
     public partial class PatientRegistration : System.Web.UI.Page
     {
+        public int Token;
+
         DataAccess da;
         protected void Page_Load(object sender, EventArgs e)
         {
-            TextBox1.Text = "";
-            TextBox2.Text = "";
-            da = new DataAccess();
-        }
-       
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            
-            
-          int token = da.RegisterPatient(TextBox1.Text,TextBox2.Text);
-          Token.Value = token.ToString();
-            if(token != -1 )
+            if ((TextBox1.Text == null) && (TextBox2.Text == null))Button1.Enabled = false;
+                
+            else Button1.Enabled = true;
+                
+                       
+            if (!Page.IsPostBack)
             {
-               
-                MsgBox("Registration Successfull your token number is  " + token + "");
-               // Response.Write("<script>alert('Registration Successfull your token number is  " + token + "');</script>");
                 TextBox1.Text = "";
                 TextBox2.Text = "";
-                
             }
-            else
-            {
-                MsgBox("invalid registration");
-            }
-
+            
         }
-        void MsgBox(string strMsg)
+
+        protected void Button1_Click(object sender, EventArgs e)
         {
-            Label lbl = new Label();
-            lbl.Text = "<script language='javascript'>" + Environment.NewLine + "window.alert(" + "'" + strMsg + "'" + ")</script>";
-            Page.Controls.Add(lbl);
-        }
+            //if ((TextBox1.Text == null))
+            //{
+            //    Response.Write("<script>alert('Fields cannot be empty....');</script>");
 
+            //}
+            //else
+            //{
+
+
+                da = new DataAccess();
+                String t = Convert.ToString(da.GetToken());
+
+                da.Increment();
+
+                Token = da.RegisterPatient(TextBox1.Text, TextBox2.Text, t);
+                //Token = Token.ToString();
+                if (Token != -1)
+                {
+
+
+
+                    Response.Write("<script>alert('Registration Successfull your token number is  " + Token + "');if(alert){ window.location='../Home.aspx';}</script>");
+
+
+
+                    TextBox1.Text = "";
+                    TextBox2.Text = "";
+
+
+
+                }
+                else
+                {
+                    Response.Write("<script>alert('Invalid Registration'</script>");
+                    //MsgBox("Invalid Registration");
+                }
+
+            }
+           
+    //}
+       
     }
     
 }

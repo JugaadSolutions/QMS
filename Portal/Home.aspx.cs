@@ -25,7 +25,8 @@ namespace Portal
             }
             else
             {
-                Response.Redirect("~/Registration/PatientRegistration.aspx");
+                
+                    Response.Redirect("~/Registration/PatientRegistration.aspx");
             }
 
         }

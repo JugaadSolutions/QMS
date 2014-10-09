@@ -14,12 +14,13 @@ namespace Portal.DLayer
     {
         String Connection = @"Data Source=.\SQLEXPRESS;Initial Catalog=QMS;Persist Security Info=True;User ID=sa;Password=sushma";
 
-        public int RegisterPatient(String Name,String Id)
+        public int RegisterPatient(String Name,String Id,String token)
         {
-            String query = @"insert into PatientQ(Name,Id,Status,Timestamp) values('{0}','{1}','NEW','{2}')";
-            query = String.Format(query, Name, Id, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+
+            String query = @"insert into PatientQ(Name,Id,Status,TimeStamp,Token) values('{0}','{1}','NEW','{2}','{3}')";
+            query = String.Format(query, Name, Id, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),Convert.ToInt32(token));
             SqlConnection cn;
-            SqlCommand cmd,cmd1;
+            SqlCommand cmd, cmd1;
             SqlDataReader dr;
             cn = new SqlConnection(Connection);
             cn.Open();
@@ -31,11 +32,13 @@ namespace Portal.DLayer
             dt.Load(dr);
             dr.Close();
             cn.Close();
-            if (dt.Rows.Count > 0) 
+            if (dt.Rows.Count > 0)
             {
-                 int Token = (int)dt.Rows[0][0];
-                 return Token;
+                int Token = (int)dt.Rows[0][0];
+                return Token;
+                
             }
+
             return -1;
         }
         public Patient GetPatient()
@@ -192,6 +195,82 @@ namespace Portal.DLayer
             return false;
                     
                     
+        }
+        public bool Login(String password)
+        {
+            SqlConnection cn;
+            SqlCommand cmd;
+            SqlDataReader dr;
+
+            cn = new SqlConnection(Connection);
+            String query = @"Select Password From Users where Password='{0}'";
+            query = String.Format(query, password);
+            cn = new SqlConnection(Connection);
+            cn.Open();
+            cmd = new SqlCommand(query, cn);
+
+            dr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            if (dt.Rows.Count > 0)
+            {
+
+                return true;
+            }
+
+            return false;
+
+
+        }
+        public void SetToken(int token)
+        {
+            SqlConnection cn;
+            SqlCommand cmd;
+            cn = new SqlConnection(Connection);
+            String query = @"Update Config SET value={0} ";
+            query = String.Format(query,token);
+            cn = new SqlConnection(Connection);
+            cn.Open();
+
+            cmd = new SqlCommand(query, cn);
+            cmd.ExecuteNonQuery();
+
+            cn.Close();
+        }
+        public int GetToken()
+        {
+            SqlConnection cn;
+            SqlCommand cmd;
+            SqlDataReader dr;
+            cn = new SqlConnection(Connection);
+            cn.Open();
+            cmd = new SqlCommand("select value from Config", cn);
+            dr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            dr.Close();
+            cn.Close();
+            if (dt.Rows.Count > 0)
+            {
+                int Token = (int)dt.Rows[0][0];
+                return Token;
+            }
+            return -1;
+        }
+        public void Increment()
+        {
+            SqlConnection cn;
+            SqlCommand cmd;
+            cn = new SqlConnection(Connection);
+            String query = @"Update Config SET value=value+1 ";
+            query = String.Format(query, cn);
+            cn = new SqlConnection(Connection);
+            cn.Open();
+
+            cmd = new SqlCommand(query, cn);
+            cmd.ExecuteNonQuery();
+
+            cn.Close();
         }
     }
     

@@ -28,7 +28,6 @@
         <tr>
             <td class="auto-style13"></td>
             <td class="auto-style12">
-                <asp:ScriptManager ID="ScriptManager1" runat="server"/>               
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
                     <asp:Timer ID="Timer1" runat="server" Interval="2000" OnTick="Timer1_Tick"/>

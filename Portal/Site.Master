@@ -45,7 +45,9 @@
        
         <asp:Image ID="Image3" runat="server" Height="130px" ImageUrl="~/Images/KHLogo.jpg" Width="359px" />
         <br />
-        <span class="auto-style4"><strong>QMS Portal</strong></span></header>
+        <span class="auto-style4"><strong>QMS Portal</strong></span>
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    </header>
     
         <section style="background-color:#FFFFCC" class="auto-style5">
             <asp:ContentPlaceHolder runat="server" ID="MainContent" >
