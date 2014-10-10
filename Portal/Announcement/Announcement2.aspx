@@ -40,7 +40,7 @@
                 <td class="auto-style9">&nbsp;</td>
                 <td class="auto-style12"><strong>Token No.</strong></td>
                 <td>
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" Enabled="False"></asp:TextBox>
                 </td>
                 <td>&nbsp;</td>
             </tr>
@@ -48,7 +48,7 @@
                 <td class="auto-style9" >&nbsp;</td>
                 <td class="auto-style12"><strong>Patient ID:</strong></td>
                 <td>
-                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox2" runat="server" Enabled="False"></asp:TextBox>
                 </td>
                 <td>&nbsp;</td>
             </tr>
@@ -56,7 +56,7 @@
                 <td class="auto-style9" >&nbsp;</td>
                 <td class="auto-style12"><strong>Patient Name:</strong></td>
                 <td>
-                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox3" runat="server" Enabled="False"></asp:TextBox>
                 </td>
                 <td>&nbsp;</td>
             </tr>
@@ -64,7 +64,7 @@
                 <td class="auto-style9" >&nbsp;</td>
                 <td class="auto-style12"><strong>Type:</strong></td>
                 <td>
-                    <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox4" runat="server" Enabled="False"></asp:TextBox>
                 </td>
                 <td>&nbsp;</td>
             </tr>

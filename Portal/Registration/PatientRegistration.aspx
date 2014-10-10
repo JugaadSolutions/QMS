@@ -61,7 +61,9 @@
             <asp:Button ID="Button1" runat="server" BackColor="#CC9900" BorderColor="#CC6600" BorderStyle="Outset" BorderWidth="3px"
                  ForeColor="White" Height="40px"  Text="Register" Width="208px" OnClick="Button1_Click" />
         </td>
-        <td></td>
+        <td>
+            <asp:Label ID="Label1" runat="server"></asp:Label>
+        </td>
     </tr>
     <tr>
         <td class="auto-style8">&nbsp;</td>

@@ -70,7 +70,7 @@
         <tr>
             <td class="auto-style11">&nbsp;</td>
             <td class="auto-style17"><span class="auto-style14">Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-                <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style16"></asp:TextBox>
+                <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style16" TextMode="Password"></asp:TextBox>
             </td>
             <td>
                 &nbsp;</td>
