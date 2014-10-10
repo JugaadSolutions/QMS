@@ -41,7 +41,7 @@
             <asp:TextBox ID="TextBox1" runat="server" Width="180px"></asp:TextBox>
         </td>
         <td class="auto-style6">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="RequiredFieldValidator" ValidateRequestMode="Enabled"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="Patient Name cannot be empty"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -51,7 +51,7 @@
             <asp:TextBox ID="TextBox2" runat="server" Width="180px"></asp:TextBox>
         </td>
         <td>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2" ErrorMessage="Patient ID cannot be empty"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>

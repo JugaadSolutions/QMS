@@ -22,9 +22,9 @@ namespace Portal.Registration
         DataAccess da;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if ((TextBox1.Text == null) && (TextBox2.Text == null))Button1.Enabled = false;
+            //if ((TextBox1.Text == null) && (TextBox2.Text == null))Button1.Enabled = false;
                 
-            else Button1.Enabled = true;
+            //else Button1.Enabled = true;
                 
                        
             if (!Page.IsPostBack)
@@ -71,7 +71,7 @@ namespace Portal.Registration
                 else
                 {
                     Response.Write("<script>alert('Invalid Registration'</script>");
-                    //MsgBox("Invalid Registration");
+                    
                 }
 
             }
