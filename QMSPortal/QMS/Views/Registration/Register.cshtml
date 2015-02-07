@@ -1,0 +1,28 @@
+﻿@model QMS.Models.Patient
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Registration Form</legend>
+        <ol>
+            <li>
+              @Html.LabelFor(m => m.PatientName)    @Html.TextBoxFor(m => m.PatientName)
+             
+
+            <li>
+               @Html.LabelFor(m => m.Id)    @Html.TextBoxFor(m => m.PatientId)
+              
+           </li>
+         </ol>
+        
+        <input type="submit"  value="Register" onclick="@("window.location.href='" + @Url.Action("Register", "Registration", new { pname=Model.PatientName,pid = Model.Id,time=DateTime.Now.ToString() }) + "'")    ;" />
+            
+    </fieldset>
+}

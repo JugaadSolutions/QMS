@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body style="height:100%; width:100%; margin-left:0%; margin-bottom:0%; background-color:white" >
+        <header>
+            <meta charset="utf-8" />
+            <div class="main-content""content-wrapper"  style="text-align:center">
+                   <img src="~/Images/KHLogo.png" alt="logo" />
+             <h2 style="color:#CC9933;">QMS</h2>  
+        <div id="body" class="content-wrapper" style="background-color:white">
+            
+            @RenderSection("featured", required: false)
+            <section class="main-content" style="text-align:center; color:black">
+             @RenderBody()
+                <p style="text-align:left">©Ideonics - ideas &amp; electronics</p>
+            </section>
+            
+        </div>
+              </div> 
+        </header>
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

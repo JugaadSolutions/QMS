@@ -1,0 +1,13 @@
+﻿@model IEnumerable<QMS.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+
+<h2>@ViewBag.Message</h2>
+
+
+ <input id="okbtn" type="button" value="OK" onclick="@("window.location.href='" + @Url.Action("Index", "Home") + "'")    ;" />

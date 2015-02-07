@@ -1,0 +1,25 @@
+﻿@model QMS.Models.Config
+
+@{
+    ViewBag.Title = "TokenSetting";
+}
+
+<h2>TokenSetting</h2>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Login Form</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.Value)
+                @Html.TextBoxFor(m => m.Value)
+            </li>
+           
+        </ol>
+         <form method="post">
+        <input type="submit" value="SAVE" onclick="@("window.location.href='" + @Url.Action("TokenSetting", "Admin",new{token=Model.Value}) + "'")    ;"  />
+             </form>
+    </fieldset>
+}

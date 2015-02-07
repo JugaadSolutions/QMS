@@ -1,0 +1,44 @@
+﻿@model QMS.Models.Patient
+
+@{
+    ViewBag.Title = "Announcement";
+}
+
+<h2>Announcement</h2>
+@using (Html.BeginForm("Announce", "Announcement", new { pid = @Model.PatientId }, FormMethod.Post, new { status = "submitform" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Announcement Form</legend>
+<table>
+        
+        <tr>
+            
+                @Html.LabelFor(m => m.Token)
+                @Html.TextBoxFor(m => m.Token, new { @readonly = "true" })
+         </tr>   
+               <tr> 
+                   @Html.LabelFor(m => m.PatientId)
+                @Html.TextBoxFor(m => m.PatientId, new { @readonly = "true" })
+            </tr>
+                <tr>
+                    @Html.LabelFor(m => m.PatientName)
+                @Html.TextBoxFor(m => m.PatientName, new { @readonly = "true" })
+
+            </tr>
+                <tr>
+                    @Html.LabelFor(m => m.Status)
+               @Html.TextBoxFor(m => m.Status, new { @readonly = "true"})
+            </tr>
+          
+        
+        </table>
+
+        <Button type="submit" id="btncall" name="Command" value="CALL"  onclick="$('#submitform').submit()">CALL</Button>
+        <Button type="submit" id="btnmissed" name="Command" value="MISSED" onclick="$('#submitform').submit()">MISSED</Button>
+        <Button type="submit" id="done" name="Command" value="DONE" onclick="$('#submitform').submit()">DONE</button> 
+
+    </fieldset> 
+}      

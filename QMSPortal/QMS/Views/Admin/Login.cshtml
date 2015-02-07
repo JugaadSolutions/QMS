@@ -1,0 +1,28 @@
+﻿@model QMS.Models.User
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Registration Form</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Password)
+                @Html.TextBoxFor(m => m.Password)
+            </li>
+        </ol>
+         <form method="Post">
+        <input type="submit"  value="Login" onclick="@("window.location.href='" + @Url.Action("Login", "Admin",new{name=Model.Name,pwd=Model.Password}) + "'")    ;" />
+             </form>
+    </fieldset>
+}

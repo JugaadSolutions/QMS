@@ -1,0 +1,38 @@
+﻿@model QMS.Models.Patient
+
+@{
+    ViewBag.Title = "PatientSelection";
+}
+
+<h2>PatientSelection</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        
+        <legend>Calling1 Form</legend>
+        <ol >
+            <li>
+                <h1  >@ViewBag.Message 
+                      
+                </h1> 
+            </li>
+           
+        </ol>
+        @{ 
+    if (ViewBag.No_of_Pateints > 0)
+    {
+        <input id="newbtn" type="button" value="NEW" onclick="@("window.location.href='" + @Url.Action("Announce", "Announcement") + "'")    ;" />
+    }
+    else
+    {
+                 <input type="button" id="dnewbtn" value="NEW" disabled="disabled"  style="height:30px;  width:120px;" />
+             
+    }
+         } 
+          
+        
+    </fieldset>
+}
