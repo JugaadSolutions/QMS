@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QMS.Migrations;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace QMS.Models
         public QMS_db()
             : base("name=DefaultConnection")
         {
+           
 
         }
         public DbSet<Patient> Patients { get; set; }

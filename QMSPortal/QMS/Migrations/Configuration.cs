@@ -1,5 +1,6 @@
 namespace QMS.Migrations
 {
+    using QMS.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -14,19 +15,20 @@ namespace QMS.Migrations
         }
 
         protected override void Seed(QMS.Models.QMS_db context)
-        {
-            //  This method will be called after migrating to the latest version.
+        {   
+            context.IPs.AddOrUpdate(
+                  i => i.IP_Address,
+                  new IP { Name = "Counter1",IP_Address="192.168.1.3" }
+                );
+            context.Configs.AddOrUpdate(
+                    t => t.key,
+                    new Config { key = "Token", Value = 1 }
+                    );
+            context.Users.AddOrUpdate(
+                u => u.Name,
+                new User { Name = "sa", Password = "123" }
+                );
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
             
         }
     }

@@ -5,17 +5,20 @@
 }
 
 <h2>PatientSelection</h2>
+ 
+
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
-    <fieldset>
+    <fieldset >
         
         <legend>Calling1 Form</legend>
         <ol >
             <li>
-                <h1  >@ViewBag.Message 
+                <h1 >@ViewBag.Message 
                       
                 </h1> 
             </li>
