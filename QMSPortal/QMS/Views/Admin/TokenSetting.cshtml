@@ -12,9 +12,9 @@
     <fieldset>
         <legend>Login Form</legend>
         <ol>
-            <li>
-                @Html.LabelFor(m => m.Value)
-                @Html.TextBoxFor(m => m.Value)
+            <li style="display:inline-block; ">
+                @Html.LabelFor(m => m.Value, new{@style="float:left; margin-top:10px;"})
+                @Html.TextBoxFor(m => m.Value, new{@style="float:right"})
             </li>
            
         </ol>

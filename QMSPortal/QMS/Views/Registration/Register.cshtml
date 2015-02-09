@@ -12,12 +12,12 @@
     <fieldset>
         <legend>Registration Form</legend>
         <ol>
-            <li>
-              @Html.LabelFor(m => m.PatientName)    @Html.TextBoxFor(m => m.PatientName)
-             
-
-            <li>
-               @Html.LabelFor(m => m.Id)    @Html.TextBoxFor(m => m.PatientId)
+            <li style="display:inline-block" >
+              <div class="lbl">@Html.LabelFor(m => m.PatientName)</div>
+               <div class="txt"> @Html.TextBoxFor(m => m.PatientName)</div>
+              <li>
+               <div class="lbl">@Html.LabelFor(m => m.PatientId)</div>
+               <div class="txt"> @Html.TextBoxFor(m => m.PatientId)</div>
               
            </li>
          </ol>

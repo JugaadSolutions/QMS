@@ -16,15 +16,15 @@ namespace QMS.Migrations
 
         protected override void Seed(QMS.Models.QMS_db context)
         {
-            context.IPs.Add(
+            context.IPs.AddOrUpdate(i=>i.IP_Address,
 
                   new IP { Name = "Counter1", IP_Address = "192.168.1.3" }
                 );
-            context.Configs.Add(
+            context.Configs.AddOrUpdate(t=>t.key,
 
                     new Config { key = "Token", Value = 1 }
                     );
-            context.Users.Add(
+            context.Users.AddOrUpdate(u=>u.Name,
 
                 new User { Name = "sa", Password = "123" }
                 );

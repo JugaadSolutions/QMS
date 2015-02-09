@@ -16,6 +16,16 @@ body {
     width:100%;
 }
 
+       .lbl{
+           
+           float:left;
+           margin-top:10px;
+       }
+       .txt{
+          width:200px; 
+          float:right;
+          margin-left:2px;
+       }
 a {
     height:100%;
     width:100%;
