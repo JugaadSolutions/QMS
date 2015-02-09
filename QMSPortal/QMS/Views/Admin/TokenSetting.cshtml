@@ -9,17 +9,19 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
-    <fieldset>
+    <fieldset  style="height:100%;text-align:left; margin-left:200px">
         <legend>Login Form</legend>
         <ol>
             <li style="display:inline-block; ">
-                @Html.LabelFor(m => m.Value, new{@style="float:left; margin-top:10px;"})
-                @Html.TextBoxFor(m => m.Value, new{@style="float:right"})
+               @Html.LabelFor(m => m.Value, new {@class="lbl" })
+                @Html.TextBoxFor(m => m.Value, new {@class="txt" })
             </li>
-           
+
         </ol>
+     </fieldset>
+    <div>
          <form method="post">
         <input type="submit" value="SAVE" onclick="@("window.location.href='" + @Url.Action("TokenSetting", "Admin",new{token=Model.Value}) + "'")    ;"  />
              </form>
-    </fieldset>
+    </div>
 }

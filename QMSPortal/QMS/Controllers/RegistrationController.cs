@@ -62,7 +62,7 @@ namespace QMS.Controllers
         public ActionResult Index(int Token)
         {
             ViewBag.Message1 = "Registration Successfull.";
-            ViewBag.Message2=" Token No -" + Token;
+            ViewBag.Message2=" Token No  - " + Token;
 
             return View();
 

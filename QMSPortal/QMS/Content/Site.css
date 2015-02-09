@@ -19,14 +19,16 @@ body {
        .lbl{
            
            float:left;
+           width:200px;
            margin-top:10px;
-           background-color:blue;
+           text-align:right;
+           
        }
        .txt{
           width:200px; 
           float:right;
-          background-color:red;
-          margin-left:2px;
+          text-align:left;
+          margin-left:5px;
        }
 a {
     height:100%;

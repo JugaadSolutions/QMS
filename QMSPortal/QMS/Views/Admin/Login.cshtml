@@ -9,20 +9,25 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
-    <fieldset>
+    <fieldset style="height:100%; width:100%; text-align:left; margin-left:200px">
         <legend>Registration Form</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.Name)
-                @Html.TextBoxFor(m => m.Name)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Password)
-                @Html.TextBoxFor(m => m.Password)
-            </li>
-        </ol>
+        <ol >
+            <li style="display:inline-block">
+              @Html.LabelFor(m => m.Name, new {@class="lbl" })
+                @Html.TextBoxFor(m => m.Name, new {@class="txt" })
+                </li>
+            </ol>
+           <ol >    
+              <li style="display:inline-block">
+               @Html.LabelFor(m => m.Password, new {@class="lbl" })
+                  @Html.PasswordFor(m => m.Password, new {@class="txt" })
+              
+           </li>
+        </ol>  
+         </fieldset>
+    <div>
          <form method="Post">
         <input type="submit"  value="Login" onclick="@("window.location.href='" + @Url.Action("Login", "Admin",new{name=Model.Name,pwd=Model.Password}) + "'")    ;" />
              </form>
-    </fieldset>
+   </div>
 }

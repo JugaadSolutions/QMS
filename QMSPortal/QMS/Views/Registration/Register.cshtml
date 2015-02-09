@@ -4,28 +4,28 @@
     ViewBag.Title = "Register";
 }
 
-<h2>Register</h2>
+<h2>Patient Registration</h2>
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
-    <fieldset>
+    <fieldset style="height:100%; width:100%; text-align:left; margin-left:200px" >
         <legend>Registration Form</legend>
-        <ol>
+        <ol >
             <li style="display:inline-block">
-              <div class="lbl">@Html.LabelFor(m => m.PatientName)</div>
-                <div class="txt">@Html.TextBoxFor(m => m.PatientName)</div>
-                <p>
-
-                </p>
-              <li>
-               <div class="lbl">@Html.LabelFor(m => m.PatientId)</div>
-                  <div class="txt">@Html.TextBoxFor(m => m.PatientId)</div>
+              @Html.LabelFor(m => m.PatientName, new {@class="lbl" })
+                @Html.TextBoxFor(m => m.PatientName, new {@class="txt" })
+                </li>
+            </ol>
+           <ol >    
+              <li style="display:inline-block">
+               @Html.LabelFor(m => m.PatientId, new {@class="lbl" })
+                  @Html.TextBoxFor(m => m.PatientId, new {@class="txt" })
               
            </li>
-         </ol>
-        <p>
-        <input type="submit"  value="Register" onclick="@("window.location.href='" + @Url.Action("Register", "Registration", new { pname=Model.PatientName,pid = Model.Id,time=DateTime.Now.ToString() }) + "'")    ;" />
-         </p>   
+        </ol>   
     </fieldset>
+    <div>
+        <input type="submit"  value="Register" onclick="@("window.location.href='" + @Url.Action("Register", "Registration", new { pname=Model.PatientName,pid = Model.Id,time=DateTime.Now.ToString() }) + "'")    ;" />
+         </div>
 }

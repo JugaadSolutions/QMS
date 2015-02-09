@@ -11,14 +11,14 @@ namespace QMS.Models
         public int Id { get; set; }
 
         [Required]
-        [Display(Name = "Patient Name")]
+        [Display(Name = "Patient Name :")]
         public String PatientName { get; set; }
 
         [Required]
-        [Display(Name = "Patient Id")]
+        [Display(Name = "Patient Id :")]
         public int PatientId { get; set; }
 
-        [Display(Name = "Status")]
+        [Display(Name = "Status :")]
         public String Status { get; set; }
 
         [Display(Name = "IP")]
@@ -26,7 +26,7 @@ namespace QMS.Models
 
         public DateTime TimeStamp { get; set; }
 
-        [Display(Name = "Token No.")]
+        [Display(Name = "Token No. :")]
         public int Token { get; set; }
     }
 }

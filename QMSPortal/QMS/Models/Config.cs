@@ -11,7 +11,7 @@ namespace QMS.Models
         public int Id { get; set; }
         public String key { get; set; }
         [Required]
-        [Display(Name="Token No.")]
+        [Display(Name="Token No. :")]
         public int Value { get; set; }
     }
 }

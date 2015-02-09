@@ -10,35 +10,41 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
-    <fieldset>
-        <legend>Announcement Form</legend>
-<table>
-        
-        <tr>
-            
-                @Html.LabelFor(m => m.Token)
-                @Html.TextBoxFor(m => m.Token, new { @readonly = "true" })
-         </tr>   
-               <tr> 
-                   @Html.LabelFor(m => m.PatientId)
-                @Html.TextBoxFor(m => m.PatientId, new { @readonly = "true" })
-            </tr>
-                <tr>
-                    @Html.LabelFor(m => m.PatientName)
-                @Html.TextBoxFor(m => m.PatientName, new { @readonly = "true" })
-
-            </tr>
-                <tr>
-                    @Html.LabelFor(m => m.Status)
-               @Html.TextBoxFor(m => m.Status, new { @readonly = "true"})
-            </tr>
-          
-        
-        </table>
-
+   
+<fieldset style="height:100%; width:100%; text-align:left; margin-left:200px" >
+        <legend>Registration Form</legend>
+        <ol >
+            <li style="display:inline-block">
+              @Html.LabelFor(m => m.Token, new {@class="lbl" })
+                @Html.TextBoxFor(m => m.Token, new {@class="txt" })
+                </li>
+            </ol>
+           <ol >    
+              <li style="display:inline-block">
+               @Html.LabelFor(m => m.PatientId, new {@class="lbl" })
+                  @Html.TextBoxFor(m => m.PatientId, new {@class="txt" })
+              
+           </li>
+        </ol>   
+     <ol >    
+              <li style="display:inline-block">
+               @Html.LabelFor(m => m.PatientName, new {@class="lbl" })
+                  @Html.TextBoxFor(m => m.PatientName, new {@class="txt" })
+              
+           </li>
+        </ol>   
+     <ol >    
+              <li style="display:inline-block">
+               @Html.LabelFor(m => m.Status, new {@class="lbl" })
+                  @Html.TextBoxFor(m => m.Status, new {@class="txt" })
+              
+           </li>
+        </ol>   
+    </fieldset>
+<div>
         <Button type="submit" id="btncall" name="Command" value="CALL"  onclick="$('#submitform').submit()">CALL</Button>
         <Button type="submit" id="btnmissed" name="Command" value="MISSED" onclick="$('#submitform').submit()">MISSED</Button>
         <Button type="submit" id="done" name="Command" value="DONE" onclick="$('#submitform').submit()">DONE</button> 
-
-    </fieldset> 
+</div>
+   
 }      
