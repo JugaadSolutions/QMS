@@ -12,17 +12,20 @@
     <fieldset>
         <legend>Registration Form</legend>
         <ol>
-            <li style="display:inline-block" >
+            <li style="display:inline-block">
               <div class="lbl">@Html.LabelFor(m => m.PatientName)</div>
-               <div class="txt"> @Html.TextBoxFor(m => m.PatientName)</div>
+                <div class="txt">@Html.TextBoxFor(m => m.PatientName)</div>
+                <p>
+
+                </p>
               <li>
                <div class="lbl">@Html.LabelFor(m => m.PatientId)</div>
-               <div class="txt"> @Html.TextBoxFor(m => m.PatientId)</div>
+                  <div class="txt">@Html.TextBoxFor(m => m.PatientId)</div>
               
            </li>
          </ol>
-        
+        <p>
         <input type="submit"  value="Register" onclick="@("window.location.href='" + @Url.Action("Register", "Registration", new { pname=Model.PatientName,pid = Model.Id,time=DateTime.Now.ToString() }) + "'")    ;" />
-            
+         </p>   
     </fieldset>
 }

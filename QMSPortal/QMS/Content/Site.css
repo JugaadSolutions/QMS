@@ -20,10 +20,12 @@ body {
            
            float:left;
            margin-top:10px;
+           background-color:blue;
        }
        .txt{
           width:200px; 
           float:right;
+          background-color:red;
           margin-left:2px;
        }
 a {
