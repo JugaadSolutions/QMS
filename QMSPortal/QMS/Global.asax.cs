@@ -7,8 +7,8 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-
-
+using QMS.Models;
+using QMS.Migrations;
 namespace QMS
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -25,6 +25,8 @@ namespace QMS
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+
+            Database.SetInitializer<QMS_db>(new MigrateDatabaseToLatestVersion<QMS_db, Configuration>());
            
         }
     }

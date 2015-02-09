@@ -26,11 +26,11 @@ namespace QMS.Models
                 .Entity<Patient>()
                 .MapToStoredProcedures(s => s.Insert(i => i.HasName("RegisterPatient")));
 
-          
-
         }
 
        
         
     }
+
+   
 }
