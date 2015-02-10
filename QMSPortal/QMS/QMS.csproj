@@ -181,6 +181,10 @@
     <Compile Include="Migrations\201502040828150_SProc.Designer.cs">
       <DependentUpon>201502040828150_SProc.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502100812355_PIdtype.cs" />
+    <Compile Include="Migrations\201502100812355_PIdtype.Designer.cs">
+      <DependentUpon>201502100812355_PIdtype.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Config.cs" />
@@ -335,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502040828150_SProc.resx">
       <DependentUpon>201502040828150_SProc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502100812355_PIdtype.resx">
+      <DependentUpon>201502100812355_PIdtype.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

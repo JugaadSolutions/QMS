@@ -10,7 +10,7 @@ namespace QMS.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
             ContextKey = "QMS.Models.QMS_db";
         }
 
@@ -18,7 +18,7 @@ namespace QMS.Migrations
         {
             context.IPs.AddOrUpdate(i=>i.IP_Address,
 
-                  new IP { Name = "Counter1", IP_Address = "192.168.1.3" },
+                  new IP { Name = "Counter1", IP_Address = "192.168.1.4" },
                   new IP { Name = "Counter2", IP_Address = "192.168.1.108" },
                   new IP { Name = "Counter3", IP_Address = "116.202.114.159" }
                 );

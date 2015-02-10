@@ -16,7 +16,7 @@ namespace QMS.Models
 
         [Required]
         [Display(Name = "Patient Id :")]
-        public int PatientId { get; set; }
+        public String PatientId { get; set; }
 
         [Display(Name = "Status :")]
         public String Status { get; set; }
