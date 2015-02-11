@@ -7,25 +7,15 @@
 <h2>Patient Selection</h2>
 <script src="~/Scripts/jquery-1.7.1.min.js">
 <script type="text/javascript">
-   @* jQuery.fjTimer({
-        interval: 1000,
-        
-        tick: function() {
-                url: '@Url.Action("PatientSelection", "Announcement")'
-        }
-});*@
-
-
-    setInterval(function () {
-        $.post({
-            url: '@Url.Action("PatientSelection", "Announcement")',
-            timer: "true",
-    
+ 
+     setInterval(function timedRefresh(timeoutPeriod) {
+       setTimeout(function() {
+        location.reload(true);
+    }, timeoutPeriod);
+    @*window.setInterval('@Url.Action("PatientSelection", "Announcement")',2000),*@
             
-            
-        });
 
-    },1000);
+    });
     </script>
 
   
@@ -33,7 +23,7 @@
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
-
+    @*<body onload="JavaScript:timedRefresh(2000);">*@
     <fieldset >
         
         <legend>Patient Selection Form</legend>
@@ -58,5 +48,6 @@
          } 
           
         
-    </fieldset>
+    </fieldset>@*
+        </body>*@
 }

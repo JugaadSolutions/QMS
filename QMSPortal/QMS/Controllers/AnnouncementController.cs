@@ -22,6 +22,7 @@ namespace QMS.Controllers
         
         public ActionResult PatientSelection()
         {
+            Response.AddHeader("Refresh", "5");
             int model = 0;
             model = (from r in db.Patients
                      where r.Status == "NEW" || r.Status == "MISSED"
