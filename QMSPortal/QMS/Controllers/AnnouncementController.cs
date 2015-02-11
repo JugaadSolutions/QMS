@@ -60,6 +60,8 @@ namespace QMS.Controllers
             var Patientinfo = (from r in db.Patients
                                where r.PatientId == P.PatientId
                                select r).Single();
+            if ((Patientinfo.Status == "NEW"|| Patientinfo.Status=="MISSED") && Command!="CALL")
+                return View(Patientinfo);
             Patientinfo.Status = Command;
             db.SaveChanges();
             Patientinfo.IP = MyIP;
