@@ -5,9 +5,30 @@
 }
 
 <h2>Patient Selection</h2>
- 
+<script src="~/Scripts/jquery-1.7.1.min.js">
+<script type="text/javascript">
+   @* jQuery.fjTimer({
+        interval: 1000,
+        
+        tick: function() {
+                url: '@Url.Action("PatientSelection", "Announcement")'
+        }
+});*@
 
 
+    setInterval(function () {
+        $.post({
+            url: '@Url.Action("PatientSelection", "Announcement")',
+            timer: "true",
+    
+            
+            
+        });
+
+    },1000);
+    </script>
+
+  
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
