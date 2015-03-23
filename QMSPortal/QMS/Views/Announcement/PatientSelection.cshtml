@@ -5,25 +5,14 @@
 }
 
 <h2>Patient Selection</h2>
-<script src="~/Scripts/jquery-1.7.1.min.js">
-<script type="text/javascript">
- 
-     setInterval(function timedRefresh(timeoutPeriod) {
-       setTimeout(function() {
-        location.reload(true);
-    }, timeoutPeriod);
-    @*window.setInterval('@Url.Action("PatientSelection", "Announcement")',2000),*@
-            
 
-    });
-    </script>
 
   
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
-    @*<body onload="JavaScript:timedRefresh(2000);">*@
+   
     <fieldset >
         
         <legend>Patient Selection Form</legend>
@@ -48,6 +37,6 @@
          } 
           
         
-    </fieldset>@*
-        </body>*@
+    </fieldset>
+       
 }
