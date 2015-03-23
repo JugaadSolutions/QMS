@@ -11,6 +11,7 @@ namespace QMS.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "QMS.Models.QMS_db";
         }
 

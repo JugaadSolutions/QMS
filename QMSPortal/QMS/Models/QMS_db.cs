@@ -32,5 +32,10 @@ namespace QMS.Models
         
     }
 
-   
+    //public class QMSDBInitializer : MigrateDatabaseToLatestVersion<QMS_db , Configuration>
+    //{
+
+
+   
+
 }
