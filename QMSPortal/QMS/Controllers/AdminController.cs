@@ -92,14 +92,17 @@ namespace QMS.Controllers
             return View(db.IPs.ToList());
         }
         [HttpPost]
-        public ActionResult IpSetting(IP  ip)
+        public ActionResult IpSetting(List<IP>  ip)
         {
             var Ip = from r in db.IPs
                      select r;
-            foreach (var item in Ip)
+            for (int i = 0; i < ip.Count(); i++)
             {
-                item.IP_Address = ip.IP_Address;
-                db.SaveChanges();
+                foreach (var item in Ip)
+                {
+                    item.IP_Address = ip[0].IP_Address;
+                    db.SaveChanges();
+                }
             }
             return RedirectToAction("IPSettingMsg");
         }
