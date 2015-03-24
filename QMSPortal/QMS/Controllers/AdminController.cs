@@ -86,25 +86,37 @@ namespace QMS.Controllers
             return View();
         }
         [HttpGet]
+  
         public ActionResult IpSetting()
         {
            
             return View(db.IPs.ToList());
         }
+
+
         [HttpPost]
-        public ActionResult IpSetting(List<IP>  ip)
+        [ValidateAntiForgeryToken]
+
+        public ActionResult IpSetting( List<IP> ipList)
         {
-            var Ip = from r in db.IPs
-                     select r;
-            for (int i = 0; i < ip.Count(); i++)
+            if (ModelState.IsValid)
             {
-                foreach (var item in Ip)
+                using (QMS_db qmsdb = new QMS_db())
                 {
-                    item.IP_Address = ip[0].IP_Address;
-                    db.SaveChanges();
+                    foreach (IP ip in ipList)
+                    {
+                        var i = (from r in qmsdb.IPs
+                                 where r.Id == ip.Id
+                                 select r).Single();
+
+                        i.IP_Address = ip.IP_Address;
+                        qmsdb.SaveChanges();
+
+                    }
                 }
+                return RedirectToAction("IPSettingMsg");
             }
-            return RedirectToAction("IPSettingMsg");
+            return null;
         }
         //
         // GET: /Admin/Details/5

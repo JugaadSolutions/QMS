@@ -7,25 +7,26 @@
 @using (Html.BeginForm("IpSetting", "Admin"))
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary()
+    @Html.ValidationSummary(true)
 
     <fieldset style="height: 100%; text-align: center;">
         <legend>Login Form</legend>
-        @foreach (var item in Model)
+        @for (int i = 0; i < Model.Count; i++ )
         {
             <ol>
 
                 <li style="display: inline-block;">
-                    @Html.LabelFor(modelItem=>item.Name,item.Name)
-                    @Html.TextBoxFor(modelItem=>item.IP_Address,item.IP_Address)
+                    @Html.HiddenFor(modelItem => modelItem[i].Id)
+                    @Html.LabelFor(modelItem => modelItem[i].Name,Model[i].Name)
+                    @Html.TextBoxFor(modelItem => modelItem[i].IP_Address)
                 </li>
             </ol>
         }
     </fieldset>
     <div>
-        <form method="post">
-            <input type="submit" value="SAVE" @*onclick="@("window.location.href='" + @Url.Action("IpSetting", "Admin", new {model=Model }) + "'")    ;"*@  />
-       </form>
+        
+            <input type="submit" value="SAVE"  />
+      
     </div>
 }
 
