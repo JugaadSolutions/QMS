@@ -1,0 +1,31 @@
+﻿@model List<QMS.Models.IP>
+
+@{
+    ViewBag.Title = "IpSetting";
+}
+<h2>IP Setting</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset style="height: 100%; text-align: center;">
+        <legend>Login Form</legend>
+        @foreach (var item in Model)
+        {
+            <ol>
+
+                <li style="display: inline-block;">
+                    @Html.Label(item.Name + " :")
+                    @Html.TextBox(item.IP_Address)
+                </li>
+            </ol>
+        }
+    </fieldset>
+    <div>
+        
+            <input type="submit" value="SAVE" onclick="@("window.location.href='" + @Url.Action("IpSetting", "Admin", new {model=Model }) + "'")    ;"  />
+       
+    </div>
+}
+
