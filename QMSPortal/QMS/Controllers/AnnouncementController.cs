@@ -22,14 +22,24 @@ namespace QMS.Controllers
         
         public ActionResult PatientSelection()
         {
+             String HostName = Dns.GetHostName();
+            String MyIP = Dns.GetHostByName(HostName).AddressList[0].ToString();
             Response.AddHeader("Refresh", "5");
             int model = 0;
             model = (from r in db.Patients
                      where r.Status == "NEW" || r.Status == "MISSED"
                      select r.PatientName).Count();
 
-            ViewBag.Message = "No.Of Patients=" + model;
+            ViewBag.totalpatient = "No.Of Patients=" + model;
             ViewBag.No_of_Pateints = model;
+            var counter=(from r in db.IPs
+                        where r.IP_Address==MyIP
+                        select r.Name);
+            counter.Take(1);
+            foreach(var item in counter)
+            {
+                ViewBag.CounterName = item;
+            }
             return View();
         }
         [HttpGet]
@@ -45,7 +55,7 @@ namespace QMS.Controllers
             model.Take(1);
             foreach (var item in model)
             {
-                return View(item);
+               return View(item);
             }
             return View();
         }
