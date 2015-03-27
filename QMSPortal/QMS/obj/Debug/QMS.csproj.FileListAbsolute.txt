@@ -305,6 +305,7 @@ J:\ideonics\Repository\QMS\QMSPortal\QMS\bin\DotNetOpenAuth.OAuth.Consumer.xml
 J:\ideonics\Repository\QMS\QMSPortal\QMS\bin\DotNetOpenAuth.OAuth.xml
 J:\ideonics\Repository\QMS\QMSPortal\QMS\bin\DotNetOpenAuth.OpenId.xml
 J:\ideonics\Repository\QMS\QMSPortal\QMS\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+J:\ideonics\Repository\QMS\QMSPortal\QMS\obj\Debug\QMS.csprojResolveAssemblyReference.cache
 J:\ideonics\Repository\QMS\QMSPortal\QMS\obj\Debug\QMS.Migrations.InitialCreate.resources
 J:\ideonics\Repository\QMS\QMSPortal\QMS\obj\Debug\QMS.Migrations.SProc.resources
 J:\ideonics\Repository\QMS\QMSPortal\QMS\obj\Debug\QMS.Migrations.PIdtype.resources

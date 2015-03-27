@@ -16,13 +16,13 @@ namespace QMS.Controllers
 
         //
         // GET: /Announcement/
+       
 
-        
        
         
         public ActionResult PatientSelection()
         {
-            String HostName = Dns.GetHostName();
+             String HostName = Dns.GetHostName();
             String MyIP = Dns.GetHostByName(HostName).AddressList[0].ToString();
             Response.AddHeader("Refresh", "5");
             int model = 0;
@@ -45,17 +45,9 @@ namespace QMS.Controllers
         [HttpGet]
         public ActionResult Announce()
         {
-            String HostName = Dns.GetHostName();
-            String MyIP = Dns.GetHostByName(HostName).AddressList[0].ToString();
+            
             Patient curPatient = new Patient();
-            var counter = (from r in db.IPs
-                           where r.IP_Address == MyIP
-                           select r.Name);
-            counter.Take(1);
-            foreach (var item1 in counter)
-            {
-                ViewBag.CounterName = item1;
-            }
+
             var model = from r in db.Patients
                         where r.Status == "NEW" || r.Status == "MISSED"
                         orderby r.TimeStamp
@@ -63,7 +55,6 @@ namespace QMS.Controllers
             model.Take(1);
             foreach (var item in model)
             {
-                
                return View(item);
             }
             return View();
@@ -75,18 +66,10 @@ namespace QMS.Controllers
             String HostName = Dns.GetHostName();
             String MyIP = Dns.GetHostByName(HostName).AddressList[0].ToString();
             Patient curPatient = new Patient();
-            var counter = (from r in db.IPs
-                           where r.IP_Address == MyIP
-                           select r.Name);
-            counter.Take(1);
-            foreach (var item1 in counter)
-            {
-                ViewBag.CounterName = item1;
-            }
+            
             var Patientinfo = (from r in db.Patients
                                where r.PatientId == P.PatientId
                                select r).Single();
-            
             if ((Patientinfo.Status == "NEW"|| Patientinfo.Status=="MISSED") && Command!="CALL")
                 return View(Patientinfo);
             Patientinfo.Status = Command;
