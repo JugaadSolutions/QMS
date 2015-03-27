@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Announcement";
 }
-<h1>@ViewBag.CounterName</h1>
+
 <h2>Announcement</h2>
 @using (Html.BeginForm("Announce", "Announcement", new { pid = @Model.PatientId }, FormMethod.Post, new { status = "submitform" }))
 {
