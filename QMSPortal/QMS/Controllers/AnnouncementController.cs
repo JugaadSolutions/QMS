@@ -45,9 +45,17 @@ namespace QMS.Controllers
         [HttpGet]
         public ActionResult Announce()
         {
-            
+            String HostName = Dns.GetHostName();
+            String MyIP = Dns.GetHostByName(HostName).AddressList[0].ToString();
             Patient curPatient = new Patient();
-
+            var counter = (from r in db.IPs
+                           where r.IP_Address == MyIP
+                           select r.Name);
+            counter.Take(1);
+            foreach (var item in counter)
+            {
+                ViewBag.CounterName = item;
+            }
             var model = from r in db.Patients
                         where r.Status == "NEW" || r.Status == "MISSED"
                         orderby r.TimeStamp
@@ -66,7 +74,14 @@ namespace QMS.Controllers
             String HostName = Dns.GetHostName();
             String MyIP = Dns.GetHostByName(HostName).AddressList[0].ToString();
             Patient curPatient = new Patient();
-            
+            var counter = (from r in db.IPs
+                           where r.IP_Address == MyIP
+                           select r.Name);
+            counter.Take(1);
+            foreach (var item in counter)
+            {
+                ViewBag.CounterName = item;
+            }
             var Patientinfo = (from r in db.Patients
                                where r.PatientId == P.PatientId
                                select r).Single();
